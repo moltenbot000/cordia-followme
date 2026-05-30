@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="light dark">
     <meta
       name="description"
-      content="A small browser-only web application template ready for Cloudflare Pages."
+      content="An interactive mystery podcast website with host blog clues, witness audio, clickable evidence scenes, and player notes."
     >
-    <title>Cordia App Template</title>
+    <title>Harborwell Files</title>
     <link rel="author" href="/humans.txt" type="text/plain">
     <link rel="alternate" href="/llm.txt" type="text/plain" title="LLM-readable site information">
     <link rel="stylesheet" href="/global.css">
@@ -20,124 +20,175 @@
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Browser app template</p>
-          <h1>Cordia</h1>
+          <p class="eyebrow">Interactive podcast mystery</p>
+          <h1>Harborwell Files</h1>
         </div>
         <nav class="nav" aria-label="Primary">
-          <a href="#overview" aria-current="page">Overview</a>
-          <a href="#workspace">Workspace</a>
-          <a href="#settings">Settings</a>
+          <a href="#case" aria-current="page">Case</a>
+          <a href="#blog">Blog</a>
+          <a href="#audio">Audio</a>
+          <a href="#scenes">Scenes</a>
+          <a href="#notes">Notes</a>
         </nav>
       </header>
 
       <main id="main">
-        <section class="hero" id="overview" aria-labelledby="hero-title">
+        <section class="hero" id="case" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">Cloudflare-ready static starter</p>
-            <h2 id="hero-title">A clean starting point for browser-only apps.</h2>
+            <p class="eyebrow">Season one: signal at low tide</p>
+            <h2 id="hero-title">Solve the night the lighthouse went dark.</h2>
             <p>
-              Customize the data model, views, and actions without introducing a
-              build pipeline. State is local by default, markup stays plain, and
-              assets live in one deployable folder.
+              Read host dispatches, listen to witness tapes, and inspect each scene for evidence.
+              Every clue points toward who cut the beacon before the ferry vanished.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#workspace">Open workspace</a>
-              <a class="button secondary" href="#settings">Edit settings</a>
+              <a class="button primary" href="#scenes">Inspect scenes</a>
+              <a class="button secondary" href="#notes">Open notebook</a>
             </div>
           </div>
-          <div class="status-panel" aria-label="Application status">
-            <div>
-              <span class="status-dot" aria-hidden="true"></span>
-              <span>Ready for customization</span>
-            </div>
-            <strong id="item-count">0</strong>
-            <span>saved items</span>
+          <div class="case-card" aria-label="Case status">
+            <span class="status-pill">Active case</span>
+            <strong><span id="found-count">0</span>/9</strong>
+            <span>evidence clues found</span>
           </div>
         </section>
 
-        <section class="section-grid" id="workspace" aria-labelledby="workspace-title">
-          <div class="panel workspace-panel">
-            <div class="section-heading">
-              <div>
-                <p class="eyebrow">Workspace</p>
-                <h2 id="workspace-title">Starter list</h2>
-              </div>
-              <button class="button secondary" id="clear-items" type="button">Clear done</button>
-            </div>
-
-            <form class="item-form" id="item-form">
-              <label for="item-input">New item</label>
-              <div class="input-row">
-                <input
-                  id="item-input"
-                  name="item"
-                  type="text"
-                  autocomplete="off"
-                  maxlength="80"
-                  placeholder="Add a task, note, or placeholder record"
-                  required
-                >
-                <button class="button primary" type="submit">Add</button>
-              </div>
-            </form>
-
-            <ul class="item-list" id="item-list" aria-live="polite"></ul>
-          </div>
-
-          <aside class="panel" aria-labelledby="snapshot-title">
-            <p class="eyebrow">Snapshot</p>
-            <h2 id="snapshot-title">Template pieces</h2>
+        <section class="section-grid" aria-label="Case brief">
+          <article class="panel brief-panel">
+            <p class="eyebrow">Brief</p>
+            <h2>Victimless crime, missing ferry, one broken alibi.</h2>
+            <p>
+              At 11:42 p.m., Harborwell Lighthouse stopped sweeping the channel. Four minutes
+              later, Ferry 6 vanished from radar. The host's field notes suggest the blackout
+              was staged from inside the station, but the maintenance log was rewritten before dawn.
+            </p>
+          </article>
+          <aside class="panel">
+            <p class="eyebrow">Prime leads</p>
             <dl class="stat-list">
               <div>
-                <dt>Runtime</dt>
-                <dd>Browser only</dd>
+                <dt>Missing object</dt>
+                <dd>Brass service key</dd>
               </div>
               <div>
-                <dt>Deploy folder</dt>
-                <dd><code>public</code></dd>
+                <dt>Last signal</dt>
+                <dd>Three short bursts</dd>
               </div>
               <div>
-                <dt>Styles</dt>
-                <dd><code>global.css</code></dd>
-              </div>
-              <div>
-                <dt>Script</dt>
-                <dd><code>app.js</code></dd>
+                <dt>False timestamp</dt>
+                <dd>11:17 p.m.</dd>
               </div>
             </dl>
           </aside>
         </section>
 
-        <section class="panel settings-panel" id="settings" aria-labelledby="settings-title">
+        <section class="panel" id="blog" aria-labelledby="blog-title">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Settings</p>
-              <h2 id="settings-title">App preferences</h2>
+              <p class="eyebrow">Host blog</p>
+              <h2 id="blog-title">Dispatches with hidden leads</h2>
             </div>
-            <span class="save-state" id="save-state" role="status">Saved locally</span>
+            <span class="save-state" id="save-state" role="status">Notebook autosaves</span>
+          </div>
+          <div class="blog-grid">
+            <article class="blog-post">
+              <time datetime="2026-04-08">April 8</time>
+              <h3>The tide chart does not forgive lies</h3>
+              <p>
+                Nora said she reached the pier after midnight, but the mud on her boots came
+                from a low-tide shelf exposed only between 10:50 and 11:20.
+              </p>
+            </article>
+            <article class="blog-post">
+              <time datetime="2026-04-12">April 12</time>
+              <h3>Why one invoice matters</h3>
+              <p>
+                The lighthouse battery was replaced two weeks early. The receipt lists a harbor
+                lockbox number used by only three station volunteers.
+              </p>
+            </article>
+            <article class="blog-post">
+              <time datetime="2026-04-19">April 19</time>
+              <h3>Static before the silence</h3>
+              <p>
+                The final radio burst is not distress code. It matches the rhythm of the foghorn
+                test Malik ran during his old training shift.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" id="audio" aria-labelledby="audio-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Witness audio</p>
+              <h2 id="audio-title">Interview tapes</h2>
+            </div>
+          </div>
+          <div class="audio-grid">
+            <article class="audio-card">
+              <h3>Nora Vale, dockhand</h3>
+              <audio controls src="/assets/interview-nora.wav"></audio>
+              <p>Transcript clue: she hears gulls during her call, yet gulls leave Harborwell docks before nightfall when foghorn tests run.</p>
+            </article>
+            <article class="audio-card">
+              <h3>Malik Rowe, former keeper</h3>
+              <audio controls src="/assets/witness-malik.wav"></audio>
+              <p>Transcript clue: he names the old service stair before anyone tells him the main stair was blocked.</p>
+            </article>
+            <article class="audio-card">
+              <h3>Dispatch tape 17B</h3>
+              <audio controls src="/assets/dispatch-tape.wav"></audio>
+              <p>Transcript clue: the background bell rings twice, placing the call near the chapel, not the marina office.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel scene-panel" id="scenes" aria-labelledby="scenes-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Investigation scenes</p>
+              <h2 id="scenes-title">Click evidence in the environment</h2>
+            </div>
+            <div class="scene-tabs" role="tablist" aria-label="Scenes">
+              <button type="button" role="tab" aria-selected="true" data-scene="lighthouse">Lighthouse</button>
+              <button type="button" role="tab" aria-selected="false" data-scene="pier">Pier</button>
+              <button type="button" role="tab" aria-selected="false" data-scene="archive">Archive</button>
+            </div>
           </div>
 
-          <div class="settings-grid">
-            <label class="field">
-              <span>App name</span>
-              <input id="app-name" type="text" maxlength="32" value="Cordia">
-            </label>
-
-            <label class="field">
-              <span>Theme</span>
-              <select id="theme-select">
-                <option value="system">System</option>
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-              </select>
-            </label>
+          <div class="scene-stage" id="scene-stage" data-scene="lighthouse" aria-live="polite">
+            <div class="scene-art" aria-label="Interactive investigation scene">
+              <button class="hotspot" type="button" data-evidence="battery" style="--x: 28%; --y: 58%;">Battery receipt</button>
+              <button class="hotspot" type="button" data-evidence="lens" style="--x: 55%; --y: 31%;">Lens smear</button>
+              <button class="hotspot" type="button" data-evidence="stair" style="--x: 73%; --y: 68%;">Blocked stair</button>
+            </div>
+            <aside class="evidence-log" aria-labelledby="evidence-title">
+              <h3 id="evidence-title">Evidence log</h3>
+              <ul id="evidence-list"></ul>
+            </aside>
           </div>
+        </section>
+
+        <section class="panel notes-panel" id="notes" aria-labelledby="notes-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Notebook</p>
+              <h2 id="notes-title">Track theories through playthrough</h2>
+            </div>
+            <button class="button secondary" id="clear-notes" type="button">Clear notes</button>
+          </div>
+          <textarea
+            id="notes-field"
+            rows="10"
+            placeholder="Suspect, motive, timeline, contradictions..."
+          ></textarea>
         </section>
       </main>
 
       <footer class="site-footer">
-        <span>Created by <a href="https://cordia.molten.bot">cordia.molten.bot</a>.</span>
-        <a href="https://molten.bot">molten.bot</a>
+        <span>Case site prototype for an interactive mystery podcast.</span>
+        <a href="#case">Back to case</a>
       </footer>
     </div>
   </body>
