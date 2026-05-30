@@ -1,26 +1,93 @@
-const storageKey = "cordia-template-state";
+const storageKey = "harborwell-files-state";
+
+const scenes = {
+  lighthouse: {
+    label: "Lighthouse",
+    evidence: ["battery", "lens", "stair"],
+  },
+  pier: {
+    label: "Pier",
+    evidence: ["mud", "bell", "rope"],
+  },
+  archive: {
+    label: "Archive",
+    evidence: ["logbook", "lockbox", "map"],
+  },
+};
+
+const evidence = {
+  battery: {
+    title: "Battery receipt",
+    detail: "Replacement date is two weeks early. Same lockbox number appears on volunteer records.",
+    x: "28%",
+    y: "58%",
+  },
+  lens: {
+    title: "Lens smear",
+    detail: "Oil smear runs upward, so the lamp was wiped after the beacon stopped.",
+    x: "55%",
+    y: "31%",
+  },
+  stair: {
+    title: "Blocked stair",
+    detail: "Scrapes on the service stair match Malik's old brass key, not a forced entry tool.",
+    x: "73%",
+    y: "68%",
+  },
+  mud: {
+    title: "Low-tide mud",
+    detail: "Nora's boot print sits on a shelf exposed only before 11:20 p.m.",
+    x: "24%",
+    y: "66%",
+  },
+  bell: {
+    title: "Chapel bell echo",
+    detail: "Two bells on the dispatch tape place the caller east of the marina.",
+    x: "62%",
+    y: "24%",
+  },
+  rope: {
+    title: "Fresh rope fibers",
+    detail: "Fibers on Pier 3 match the ferry stern line, cut with a clean blade.",
+    x: "78%",
+    y: "60%",
+  },
+  logbook: {
+    title: "Rewritten logbook",
+    detail: "Ink pressure changes on the 11:17 entry. The original time was scraped off.",
+    x: "30%",
+    y: "40%",
+  },
+  lockbox: {
+    title: "Lockbox 14",
+    detail: "Only three volunteers used this box: Nora, Malik, and the night archivist.",
+    x: "50%",
+    y: "64%",
+  },
+  map: {
+    title: "Marked channel map",
+    detail: "Red pencil route avoids the lighthouse beam and lines up with Ferry 6's last radar ping.",
+    x: "74%",
+    y: "35%",
+  },
+};
 
 const defaultState = {
-  appName: "Cordia",
-  theme: "system",
-  items: [
-    { id: crypto.randomUUID(), text: "Replace starter content", done: false },
-    { id: crypto.randomUUID(), text: "Add app-specific data model", done: false },
-    { id: crypto.randomUUID(), text: "Deploy public folder to Cloudflare Pages", done: true },
-  ],
+  scene: "lighthouse",
+  foundEvidence: [],
+  notes: "",
 };
 
 const elements = {
-  appNameInput: document.querySelector("#app-name"),
-  clearItemsButton: document.querySelector("#clear-items"),
-  itemCount: document.querySelector("#item-count"),
-  itemForm: document.querySelector("#item-form"),
-  itemInput: document.querySelector("#item-input"),
-  itemList: document.querySelector("#item-list"),
+  clearNotesButton: document.querySelector("#clear-notes"),
+  evidenceList: document.querySelector("#evidence-list"),
+  foundCount: document.querySelector("#found-count"),
   navLinks: document.querySelectorAll(".nav a"),
+  notesField: document.querySelector("#notes-field"),
   saveState: document.querySelector("#save-state"),
-  themeSelect: document.querySelector("#theme-select"),
-  title: document.querySelector(".topbar h1"),
+  sceneArt: document.querySelector(".scene-art"),
+  sceneStage: document.querySelector("#scene-stage"),
+  sceneTabs: document.querySelectorAll(".scene-tabs button"),
 };
 
 let state = loadState();
@@ -37,122 +104,100 @@ function loadState() {
 
 function saveState() {
   localStorage.setItem(storageKey, JSON.stringify(state));
-  elements.saveState.textContent = "Saved locally";
+  elements.saveState.textContent = "Notebook saved";
   window.clearTimeout(saveTimer);
   saveTimer = window.setTimeout(() => {
-    elements.saveState.textContent = "Changes autosave";
+    elements.saveState.textContent = "Notebook autosaves";
   }, 1600);
 }
 
-function applyTheme() {
-  document.documentElement.dataset.theme = state.theme;
-}
-
 function render() {
-  document.title = `${state.appName} App Template`;
-  elements.title.textContent = state.appName;
-  elements.appNameInput.value = state.appName;
-  elements.themeSelect.value = state.theme;
-  elements.itemCount.textContent = state.items.length;
-  applyTheme();
-  renderItems();
+  elements.notesField.value = state.notes;
+  elements.foundCount.textContent = state.foundEvidence.length;
+  renderScene();
+  renderEvidenceLog();
 }
 
-function renderItems() {
-  elements.itemList.replaceChildren();
+function renderScene() {
+  const scene = scenes[state.scene];
+  elements.sceneStage.dataset.scene = state.scene;
+  elements.sceneArt.setAttribute("aria-label", `${scene.label} investigation scene`);
+  elements.sceneArt.replaceChildren();
 
-  if (state.items.length === 0) {
-    const emptyState = document.createElement("p");
-    emptyState.className = "empty-state";
-    emptyState.textContent = "No items yet. Add one to start shaping this template.";
-    elements.itemList.append(emptyState);
-    return;
-  }
+  scene.evidence.forEach((id) => {
+    const clue = evidence[id];
+    const button = document.createElement("button");
+    button.className = "hotspot";
+    button.type = "button";
+    button.dataset.evidence = id;
+    button.style.setProperty("--x", clue.x);
+    button.style.setProperty("--y", clue.y);
+    button.textContent = clue.title;
+    button.ariaPressed = state.foundEvidence.includes(id) ? "true" : "false";
+    button.addEventListener("click", () => findEvidence(id));
+    elements.sceneArt.append(button);
+  });
 
-  state.items.forEach((item) => {
-    const row = document.createElement("li");
-    row.className = "item-row";
-    row.dataset.done = item.done;
-
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = item.done;
-    checkbox.ariaLabel = `Mark ${item.text} complete`;
-    checkbox.addEventListener("change", () => updateItem(item.id, { done: checkbox.checked }));
-
-    const label = document.createElement("span");
-    label.textContent = item.text;
-
-    const removeButton = document.createElement("button");
-    removeButton.className = "icon-button";
-    removeButton.type = "button";
-    removeButton.ariaLabel = `Remove ${item.text}`;
-    removeButton.textContent = "x";
-    removeButton.addEventListener("click", () => removeItem(item.id));
-
-    row.append(checkbox, label, removeButton);
-    elements.itemList.append(row);
+  elements.sceneTabs.forEach((tab) => {
+    tab.setAttribute("aria-selected", tab.dataset.scene === state.scene ? "true" : "false");
   });
 }
 
-function updateItem(id, patch) {
-  state = {
-    ...state,
-    items: state.items.map((item) => (item.id === id ? { ...item, ...patch } : item)),
-  };
-  saveState();
+function renderEvidenceLog() {
+  elements.evidenceList.replaceChildren();
+
+  if (state.foundEvidence.length === 0) {
+    const empty = document.createElement("li");
+    empty.className = "empty-state";
+    empty.textContent = "No evidence found yet.";
+    elements.evidenceList.append(empty);
+    return;
+  }
+
+  state.foundEvidence.forEach((id) => {
+    const clue = evidence[id];
+    const item = document.createElement("li");
+    const title = document.createElement("strong");
+    const detail = document.createElement("span");
+    title.textContent = clue.title;
+    detail.textContent = clue.detail;
+    item.append(title, detail);
+    elements.evidenceList.append(item);
+  });
+}
+
+function findEvidence(id) {
+  if (!state.foundEvidence.includes(id)) {
+    state = { ...state, foundEvidence: [...state.foundEvidence, id] };
+    saveState();
+  }
   render();
 }
 
-function removeItem(id) {
-  state = {
-    ...state,
-    items: state.items.filter((item) => item.id !== id),
-  };
-  saveState();
-  render();
-}
-
-function addItem(text) {
-  state = {
-    ...state,
-    items: [{ id: crypto.randomUUID(), text, done: false }, ...state.items],
-  };
-  saveState();
-  render();
-}
-
-elements.itemForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const text = elements.itemInput.value.trim();
-  if (!text) return;
-  addItem(text);
-  elements.itemInput.value = "";
-  elements.itemInput.focus();
+elements.sceneTabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    state = { ...state, scene: tab.dataset.scene };
+    saveState();
+    render();
+  });
 });
 
-elements.clearItemsButton.addEventListener("click", () => {
-  state = { ...state, items: state.items.filter((item) => !item.done) };
+elements.notesField.addEventListener("input", () => {
+  state = { ...state, notes: elements.notesField.value };
   saveState();
-  render();
 });
 
-elements.appNameInput.addEventListener("input", () => {
-  state = { ...state, appName: elements.appNameInput.value.trim() || "Cordia" };
+elements.clearNotesButton.addEventListener("click", () => {
+  state = { ...state, notes: "" };
   saveState();
   render();
-});
-
-elements.themeSelect.addEventListener("change", () => {
-  state = { ...state, theme: elements.themeSelect.value };
-  saveState();
-  render();
+  elements.notesField.focus();
 });
 
 window.addEventListener("hashchange", updateCurrentNavLink);
 
 function updateCurrentNavLink() {
-  const currentHash = window.location.hash || "#overview";
+  const currentHash = window.location.hash || "#case";
   elements.navLinks.forEach((link) => {
     link.setAttribute("aria-current", link.getAttribute("href") === currentHash ? "page" : "false");
   });

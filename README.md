@@ -1,12 +1,13 @@
-# Cordia Web Blank
+# Harborwell Files
 
-Static browser-only web app template for fast downstream customization.
+Static browser-only interactive mystery podcast website.
 
 ## Structure
 
 - `public/index.html` - app markup and deploy entry point
 - `public/global.css` - global styling
 - `public/app.js` - browser-only application logic
+- `public/assets/` - hero artwork and witness audio files
 - `public/_redirects` - Cloudflare Pages SPA fallback
 - `public/_headers` - basic static security headers
 
