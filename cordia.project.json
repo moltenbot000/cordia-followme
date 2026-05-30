@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "generatedBy": "cordia",
+  "updatedAt": "2026-05-30T19:54:06.354Z",
+  "project": {
+    "id": "followme",
+    "handle": "followme",
+    "title": "Follow Me",
+    "summary": "Join our community in creating a murder/mystery true crime inspired game, for true crime junkies.",
+    "url": "https://cordia.molten.bot/projects/followme"
+  },
+  "repo": {
+    "owner": "moltenbot000",
+    "name": "cordia-followme",
+    "fullName": "moltenbot000/cordia-followme"
+  }
+}
