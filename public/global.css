@@ -180,7 +180,7 @@ main {
   border-radius: var(--radius);
   background:
     linear-gradient(90deg, rgb(0 0 0 / 78%), rgb(0 0 0 / 38%) 55%, rgb(0 0 0 / 12%)),
-    url("/assets/case-hero.png") center / cover;
+    url("/assets/mill-creek-cabin.png") center / cover;
   box-shadow: var(--shadow);
 }
 
@@ -303,6 +303,11 @@ main {
   line-height: 1.65;
 }
 
+.closing-panel p:last-child {
+  max-width: 78ch;
+  margin-bottom: 0;
+}
+
 .section-heading {
   align-items: center;
   justify-content: space-between;
@@ -361,6 +366,33 @@ main {
   font-size: 1.2rem;
 }
 
+.article-body {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.article-body article {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface-strong);
+}
+
+.article-body h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+  line-height: 1.2;
+}
+
+.article-body p {
+  margin: 0;
+}
+
+.article-body p + p {
+  margin-top: 0.75rem;
+}
+
 .audio-card audio {
   width: 100%;
   margin-top: 0.8rem;
@@ -400,19 +432,19 @@ main {
   border-radius: var(--radius);
   background:
     linear-gradient(180deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 22%)),
-    url("/assets/scene-lighthouse.png") center / cover;
+    url("/assets/mill-creek-cabin.png") center / cover;
 }
 
-.scene-stage[data-scene="pier"] .scene-art {
+.scene-stage[data-scene="road"] .scene-art {
   background:
-    linear-gradient(180deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 22%)),
-    url("/assets/scene-pier.png") center / cover;
+    linear-gradient(180deg, rgb(0 0 0 / 12%), rgb(0 0 0 / 34%)),
+    url("/assets/mill-creek-cabin.png") left center / cover;
 }
 
-.scene-stage[data-scene="archive"] .scene-art {
+.scene-stage[data-scene="town"] .scene-art {
   background:
-    linear-gradient(180deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 22%)),
-    url("/assets/scene-archive.png") center / cover;
+    linear-gradient(180deg, rgb(0 0 0 / 18%), rgb(0 0 0 / 44%)),
+    url("/assets/mill-creek-cabin.png") right center / cover;
 }
 
 .hotspot {
@@ -551,7 +583,9 @@ a:focus-visible {
   }
 
   .hero h2 {
-    max-width: 10ch;
+    max-width: 12ch;
+    font-size: 2.05rem;
+    line-height: 1.08;
   }
 
   .case-card {
@@ -561,6 +595,10 @@ a:focus-visible {
   .section-heading {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .article-body {
+    grid-template-columns: 1fr;
   }
 
   .scene-art {

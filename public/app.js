@@ -1,79 +1,79 @@
-const storageKey = "harborwell-files-state";
+const storageKey = "mill-creek-files-state";
 
 const scenes = {
-  lighthouse: {
-    label: "Lighthouse",
-    evidence: ["battery", "lens", "stair"],
+  cabin: {
+    label: "Cabin",
+    evidence: ["door", "shelf", "chimney"],
   },
-  pier: {
-    label: "Pier",
-    evidence: ["mud", "bell", "rope"],
+  road: {
+    label: "Road",
+    evidence: ["truck", "lastHouse", "mud"],
   },
-  archive: {
-    label: "Archive",
-    evidence: ["logbook", "lockbox", "map"],
+  town: {
+    label: "Town",
+    evidence: ["autopsy", "name", "burial"],
   },
 };
 
 const evidence = {
-  battery: {
-    title: "Battery receipt",
-    detail: "Replacement date is two weeks early. Same lockbox number appears on volunteer records.",
-    x: "28%",
-    y: "58%",
+  door: {
+    title: "Open door",
+    detail: "Neighbors said Old Crow bolted everything, making the open cabin door hard to dismiss.",
+    x: "60%",
+    y: "48%",
   },
-  lens: {
-    title: "Lens smear",
-    detail: "Oil smear runs upward, so the lamp was wiped after the beacon stopped.",
+  shelf: {
+    title: "Empty shelf",
+    detail: "The carved trinkets he bartered with were missing from the cabin after his death.",
+    x: "74%",
+    y: "57%",
+  },
+  chimney: {
+    title: "Cold chimney",
+    detail: "The hunter found the chimney cold, suggesting Old Crow had been dead before discovery day.",
     x: "55%",
-    y: "31%",
+    y: "26%",
   },
-  stair: {
-    title: "Blocked stair",
-    detail: "Scrapes on the service stair match Malik's old brass key, not a forced entry tool.",
-    x: "73%",
-    y: "68%",
+  truck: {
+    title: "Unknown truck",
+    detail: "A neighbor saw an unfamiliar truck idling on the dirt road two nights running, then never again.",
+    x: "32%",
+    y: "62%",
+  },
+  lastHouse: {
+    title: "Last house",
+    detail: "Old Crow lived half a mile past the last house, outside the habits of ordinary town notice.",
+    x: "48%",
+    y: "42%",
   },
   mud: {
-    title: "Low-tide mud",
-    detail: "Nora's boot print sits on a shelf exposed only before 11:20 p.m.",
-    x: "24%",
-    y: "66%",
+    title: "Muddy road",
+    detail: "In rain, Mill Creek's single road turned to soup, limiting who could reach the cabin unseen.",
+    x: "70%",
+    y: "72%",
   },
-  bell: {
-    title: "Chapel bell echo",
-    detail: "Two bells on the dispatch tape place the caller east of the marina.",
-    x: "62%",
-    y: "24%",
-  },
-  rope: {
-    title: "Fresh rope fibers",
-    detail: "Fibers on Pier 3 match the ferry stern line, cut with a clean blade.",
-    x: "78%",
-    y: "60%",
-  },
-  logbook: {
-    title: "Rewritten logbook",
-    detail: "Ink pressure changes on the 11:17 entry. The original time was scraped off.",
+  autopsy: {
+    title: "No autopsy worth the name",
+    detail: "The death was treated as old man, lived alone, these things happen.",
     x: "30%",
-    y: "40%",
+    y: "44%",
   },
-  lockbox: {
-    title: "Lockbox 14",
-    detail: "Only three volunteers used this box: Nora, Malik, and the night archivist.",
-    x: "50%",
-    y: "64%",
-  },
-  map: {
-    title: "Marked channel map",
-    detail: "Red pencil route avoids the lighthouse beam and lines up with Ferry 6's last radar ping.",
-    x: "74%",
+  name: {
+    title: "Forgotten name",
+    detail: "Almost nobody remembered his real name, making official neglect easier.",
+    x: "55%",
     y: "35%",
+  },
+  burial: {
+    title: "Unmarked plot",
+    detail: "Old Crow was buried in an unmarked plot, and Mill Creek moved on.",
+    x: "76%",
+    y: "57%",
   },
 };
 
 const defaultState = {
-  scene: "lighthouse",
+  scene: "cabin",
   foundEvidence: [],
   notes: "",
 };
@@ -149,7 +149,7 @@ function renderEvidenceLog() {
   if (state.foundEvidence.length === 0) {
     const empty = document.createElement("li");
     empty.className = "empty-state";
-    empty.textContent = "No evidence found yet.";
+    empty.textContent = "No case details found yet.";
     elements.evidenceList.append(empty);
     return;
   }

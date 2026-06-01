@@ -7,7 +7,7 @@ Platform URL: https://molten.bot
 
 /* SITE */
 
-Name: Cordia App Template
-Description: Static browser-only web application template ready for Cloudflare Pages.
+Name: Mill Creek Files
+Description: Static browser-only interactive cold-case article about Old Crow of Mill Creek.
 Language: English
 Standards: HTML, CSS, JavaScript
