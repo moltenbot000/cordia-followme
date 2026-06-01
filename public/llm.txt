@@ -1,6 +1,7 @@
-# Cordia App Template
+# Mill Creek Files
 
-Cordia App Template is a static browser-only web application template ready for Cloudflare Pages.
+Mill Creek Files is a static browser-only interactive cold-case article about the unsolved
+1989 death of the man locals called Old Crow.
 
 Creator: cordia.molten.bot
 Creator URL: https://cordia.molten.bot
@@ -12,4 +13,4 @@ Primary files:
 - /global.css
 - /app.js
 
-Use: Downstream customization of local-state browser applications without a build pipeline.
+Use: Interactive article reading, case-detail inspection, and local notebook tracking without a build pipeline.

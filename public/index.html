@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="light dark">
     <meta
       name="description"
-      content="An interactive mystery podcast website with host blog clues, witness audio, clickable evidence scenes, and player notes."
+      content="An interactive cold-case article about the unsolved 1989 death of the man Mill Creek called Old Crow."
     >
-    <title>Harborwell Files</title>
+    <title>The Hollow Man of Mill Creek</title>
     <link rel="author" href="/humans.txt" type="text/plain">
     <link rel="alternate" href="/llm.txt" type="text/plain" title="LLM-readable site information">
     <link rel="stylesheet" href="/global.css">
@@ -20,13 +20,13 @@
     <div class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Interactive podcast mystery</p>
-          <h1>Harborwell Files</h1>
+          <p class="eyebrow">Interactive cold-case article</p>
+          <h1>Mill Creek Files</h1>
         </div>
         <nav class="nav" aria-label="Primary">
           <a href="#case" aria-current="page">Case</a>
-          <a href="#blog">Blog</a>
-          <a href="#audio">Audio</a>
+          <a href="#article">Article</a>
+          <a href="#unresolved">Leads</a>
           <a href="#scenes">Scenes</a>
           <a href="#notes">Notes</a>
         </nav>
@@ -35,32 +35,32 @@
       <main id="main">
         <section class="hero" id="case" aria-labelledby="hero-title">
           <div class="hero-copy">
-            <p class="eyebrow">Season one: signal at low tide</p>
-            <h2 id="hero-title">Solve the night the lighthouse went dark.</h2>
+            <p class="eyebrow">Cold cases &amp; forgotten crimes</p>
+            <h2 id="hero-title">The Hollow Man of Mill Creek</h2>
             <p>
-              Read host dispatches, listen to witness tapes, and inspect each scene for evidence.
-              Every clue points toward who cut the beacon before the ferry vanished.
+              A 1989 murder nobody bothered to solve. Read the case file, inspect the cabin,
+              and track what still does not add up.
             </p>
             <div class="hero-actions">
-              <a class="button primary" href="#scenes">Inspect scenes</a>
+              <a class="button primary" href="#article">Read case</a>
               <a class="button secondary" href="#notes">Open notebook</a>
             </div>
           </div>
           <div class="case-card" aria-label="Case status">
-            <span class="status-pill">Active case</span>
+            <span class="status-pill">Unsolved since 1989</span>
             <strong><span id="found-count">0</span>/9</strong>
-            <span>evidence clues found</span>
+            <span>case details found</span>
           </div>
         </section>
 
         <section class="section-grid" aria-label="Case brief">
           <article class="panel brief-panel">
             <p class="eyebrow">Brief</p>
-            <h2>Victimless crime, missing ferry, one broken alibi.</h2>
+            <h2>Old Crow lived alone. That made him easy to forget.</h2>
             <p>
-              At 11:42 p.m., Harborwell Lighthouse stopped sweeping the channel. Four minutes
-              later, Ferry 6 vanished from radar. The host's field notes suggest the blackout
-              was staged from inside the station, but the maintenance log was rewritten before dawn.
+              In autumn 1989, a hunter found the reclusive man locals called Old Crow dead in
+              his cabin beyond Mill Creek's last house. The door was open, the chimney was cold,
+              and the official answer arrived before the questions did.
             </p>
           </article>
           <aside class="panel">
@@ -68,103 +68,121 @@
             <dl class="stat-list">
               <div>
                 <dt>Missing object</dt>
-                <dd>Brass service key</dd>
+                <dd>Carved trinkets</dd>
               </div>
               <div>
-                <dt>Last signal</dt>
-                <dd>Three short bursts</dd>
+                <dt>Last sighting</dt>
+                <dd>Unknown truck</dd>
               </div>
               <div>
-                <dt>False timestamp</dt>
-                <dd>11:17 p.m.</dd>
+                <dt>Case flaw</dt>
+                <dd>No real autopsy</dd>
               </div>
             </dl>
           </aside>
         </section>
 
-        <section class="panel" id="blog" aria-labelledby="blog-title">
+        <section class="panel article-panel" id="article" aria-labelledby="article-title">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Host blog</p>
-              <h2 id="blog-title">Dispatches with hidden leads</h2>
+              <p class="eyebrow">Case article</p>
+              <h2 id="article-title">A 1989 murder nobody bothered to solve</h2>
             </div>
             <span class="save-state" id="save-state" role="status">Notebook autosaves</span>
           </div>
-          <div class="blog-grid">
-            <article class="blog-post">
-              <time datetime="2026-04-08">April 8</time>
-              <h3>The tide chart does not forgive lies</h3>
+          <div class="article-body">
+            <article>
+              <h3>A town you'd drive past without knowing</h3>
               <p>
-                Nora said she reached the pier after midnight, but the mud on her boots came
-                from a low-tide shelf exposed only between 10:50 and 11:20.
+                Mill Creek was not on most maps. In 1989, fewer than 400 people lived along a
+                dirt road that turned to soup every time it rained. There was a church, a feed
+                store, and a gas pump that worked when the owner felt like turning it on.
+              </p>
+              <p>
+                About a half-mile past the last house, where the tree line swallowed the road,
+                lived a man whose real name almost nobody remembered. Locals called him Old Crow:
+                partly for his black coat, partly for the way he appeared at property lines,
+                watched, and vanished back into the woods.
               </p>
             </article>
-            <article class="blog-post">
-              <time datetime="2026-04-12">April 12</time>
-              <h3>Why one invoice matters</h3>
+            <article>
+              <h3>The man nobody missed</h3>
               <p>
-                The lighthouse battery was replaced two weeks early. The receipt lists a harbor
-                lockbox number used by only three station volunteers.
+                Old Crow had no family, no friends, and no visitors. Children dared each other
+                to touch his fence. Shopkeepers learned to leave goods on the step instead of
+                handing them over. He was deeply unsettling, and when a person is that strange,
+                people stop asking questions about them.
               </p>
             </article>
-            <article class="blog-post">
-              <time datetime="2026-04-19">April 19</time>
-              <h3>Static before the silence</h3>
+            <article>
+              <h3>The discovery</h3>
               <p>
-                The final radio burst is not distress code. It matches the rhythm of the foghorn
-                test Malik ran during his old training shift.
+                In autumn 1989, a hunter cutting through the back acreage found the cabin door
+                hanging open and the chimney cold. Inside, Old Crow was dead. Some said it looked
+                like a fall. Others whispered about marks that a fall could not explain.
+              </p>
+              <p>
+                There was no real investigation. No canvassing of neighbors. No autopsy worth
+                the name. The unofficial verdict was old man, lived alone, these things happen.
               </p>
             </article>
           </div>
         </section>
 
-        <section class="panel" id="audio" aria-labelledby="audio-title">
+        <section class="panel" id="unresolved" aria-labelledby="unresolved-title">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Witness audio</p>
-              <h2 id="audio-title">Interview tapes</h2>
+              <p class="eyebrow">Case notes</p>
+              <h2 id="unresolved-title">What still does not add up</h2>
             </div>
           </div>
           <div class="audio-grid">
             <article class="audio-card">
-              <h3>Nora Vale, dockhand</h3>
-              <audio controls src="/assets/interview-nora.wav"></audio>
-              <p>Transcript clue: she hears gulls during her call, yet gulls leave Harborwell docks before nightfall when foghorn tests run.</p>
+              <h3>Bolted door</h3>
+              <p>His cabin door was open, yet every account says the reclusive man bolted everything.</p>
             </article>
             <article class="audio-card">
-              <h3>Malik Rowe, former keeper</h3>
-              <audio controls src="/assets/witness-malik.wav"></audio>
-              <p>Transcript clue: he names the old service stair before anyone tells him the main stair was blocked.</p>
+              <h3>Missing carvings</h3>
+              <p>The carved trinkets he traded for supplies were gone from the shelves after his death.</p>
             </article>
             <article class="audio-card">
-              <h3>Dispatch tape 17B</h3>
-              <audio controls src="/assets/dispatch-tape.wav"></audio>
-              <p>Transcript clue: the background bell rings twice, placing the call near the chapel, not the marina office.</p>
+              <h3>Unknown truck</h3>
+              <p>A neighbor reported an unfamiliar truck idling on the dirt road two nights running.</p>
             </article>
           </div>
+        </section>
+
+        <section class="panel closing-panel" aria-labelledby="closing-title">
+          <p class="eyebrow">Still out there</p>
+          <h2 id="closing-title">A trail that went cold before it was warm</h2>
+          <p>
+            If someone walked into that cabin in autumn 1989 and left by the muddy road,
+            they were never questioned, named, or suspected. Old Crow's isolation made him
+            the perfect victim, and made his killer the perfect ghost.
+          </p>
         </section>
 
         <section class="panel scene-panel" id="scenes" aria-labelledby="scenes-title">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Investigation scenes</p>
-              <h2 id="scenes-title">Click evidence in the environment</h2>
+              <h2 id="scenes-title">Click details in the case file</h2>
             </div>
             <div class="scene-tabs" role="tablist" aria-label="Scenes">
-              <button type="button" role="tab" aria-selected="true" data-scene="lighthouse">Lighthouse</button>
-              <button type="button" role="tab" aria-selected="false" data-scene="pier">Pier</button>
-              <button type="button" role="tab" aria-selected="false" data-scene="archive">Archive</button>
+              <button type="button" role="tab" aria-selected="true" data-scene="cabin">Cabin</button>
+              <button type="button" role="tab" aria-selected="false" data-scene="road">Road</button>
+              <button type="button" role="tab" aria-selected="false" data-scene="town">Town</button>
             </div>
           </div>
 
-          <div class="scene-stage" id="scene-stage" data-scene="lighthouse" aria-live="polite">
+          <div class="scene-stage" id="scene-stage" data-scene="cabin" aria-live="polite">
             <div class="scene-art" aria-label="Interactive investigation scene">
-              <button class="hotspot" type="button" data-evidence="battery" style="--x: 28%; --y: 58%;">Battery receipt</button>
-              <button class="hotspot" type="button" data-evidence="lens" style="--x: 55%; --y: 31%;">Lens smear</button>
-              <button class="hotspot" type="button" data-evidence="stair" style="--x: 73%; --y: 68%;">Blocked stair</button>
+              <button class="hotspot" type="button" data-evidence="door" style="--x: 60%; --y: 48%;">Open door</button>
+              <button class="hotspot" type="button" data-evidence="shelf" style="--x: 74%; --y: 57%;">Empty shelf</button>
+              <button class="hotspot" type="button" data-evidence="chimney" style="--x: 55%; --y: 26%;">Cold chimney</button>
             </div>
             <aside class="evidence-log" aria-labelledby="evidence-title">
-              <h3 id="evidence-title">Evidence log</h3>
+              <h3 id="evidence-title">Case detail log</h3>
               <ul id="evidence-list"></ul>
             </aside>
           </div>
@@ -174,7 +192,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Notebook</p>
-              <h2 id="notes-title">Track theories through playthrough</h2>
+              <h2 id="notes-title">Track theories while reading</h2>
             </div>
             <button class="button secondary" id="clear-notes" type="button">Clear notes</button>
           </div>
@@ -187,7 +205,7 @@
       </main>
 
       <footer class="site-footer">
-        <span>Case site prototype for an interactive mystery podcast.</span>
+        <span>Interactive cold-case article prototype.</span>
         <a href="#case">Back to case</a>
       </footer>
     </div>

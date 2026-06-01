@@ -1,13 +1,13 @@
-# Harborwell Files
+# Mill Creek Files
 
-Static browser-only interactive mystery podcast website.
+Static browser-only interactive cold-case article website.
 
 ## Structure
 
 - `public/index.html` - app markup and deploy entry point
 - `public/global.css` - global styling
 - `public/app.js` - browser-only application logic
-- `public/assets/` - hero artwork and witness audio files
+- `public/assets/` - hero artwork and legacy media assets
 - `public/_redirects` - Cloudflare Pages SPA fallback
 - `public/_headers` - basic static security headers
 
